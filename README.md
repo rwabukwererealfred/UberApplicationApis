@@ -4,15 +4,15 @@
 - Below are APIs used to test data from server side
 
 ## Technology used
--	Backend : Spring boot framework (master branch)
+-	Backend : Spring boot framework
 -	Database: MongoDb
 
 
 ## Available Driver end points
 ### Listing all Drivers (GET)
-#### If you want available Driver set parameter status as 'Available'
-#### If you want Requested Driver set parameter status as 'Requested'
-#### If you want all Drivers with available and Requested status don't set any parameter
+- #### If you want available Driver set parameter status as 'Available'
+- #### If you want Requested Driver set parameter status as 'Requested'
+- #### If you want all Drivers with available and Requested status don't set any parameter
 - Link: http://localhost:8080/uber/api/Driver/drivers
 ### Return Specific Driver by Id (GET)
 - #### set paramater driverId
