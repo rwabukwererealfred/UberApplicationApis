@@ -15,7 +15,7 @@
 #### If you want all Drivers with available and Requested status don't set any parameter
 - Link: http://localhost:8080/uber/api/Driver/drivers
 ### Return Specific Driver by Id (GET)
-#### set paramater driverId
+- #### set paramater driverId
 - Link: http://localhost:8080/uber/api/Driver/findDriverById
 ### Return the Closest Driver are around you within any specific kilometers (GET)
 - parameter are required: latitude , longitude of your location and kilometer
@@ -35,11 +35,11 @@
 ### Return all active Trip (GET) 
 - Link: http://localhost:8080/uber/api/Trip/startedTrip
 ### Here is to Complete a Trip by provinding Trip Id, endPointLatitude, endPointLongitude and LocationNameEndPoint And it will return success message and the URL to print Invoice
-#### Copy url and paste it in the Browser to print invoice (PUT)
+- #### Copy url and paste it in the Browser to print invoice (PUT)
 - Required Parameter: tripId, latitude, longitude and locationNameEndPoint 
 - Link: http://localhost:8080/uber/api/Trip/completeTrip
 ### Return all Completed Trip (GET) 
 - Link: http://localhost:8080/uber/api/Trip/completedTrip
 ### Print Invoice With Specific Trip Id
 - Only tripId pathVariable is required
--Link: http://localhost:8080/uber/api/Trip/invoice/{tripId}
+- Link: http://localhost:8080/uber/api/Trip/invoice/{tripId}
