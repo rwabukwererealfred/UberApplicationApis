@@ -4,14 +4,23 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Document(collection = "Driver")
+@ApiModel(description = "Driver information model")
 public class Driver {
 
 	@Id
+	@ApiModelProperty(notes = "Unique driver id")
 	private int driverId;
+	@ApiModelProperty(notes = "Driver first name")
 	private String firstName;
+	@ApiModelProperty(notes = "Driver last name")
 	private String lastName;
+	@ApiModelProperty(notes = "latitude, longitude and location name of driver")
 	private String []location;
+	@ApiModelProperty(notes = "Driver status")
 	private String status;
 	
 	@Transient

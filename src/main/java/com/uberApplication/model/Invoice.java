@@ -3,16 +3,22 @@ package com.uberApplication.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Document(collection = "Invoice")
 public class Invoice {
 	
 	
 
 	@Id
+	@ApiModelProperty(notes = "Unique invoice id")
 	private String invoiceId;
+	@ApiModelProperty(notes = "Trip Cost will be calculated Automatically( 1kilometer = 1000 rwf)")
 	private Double cost;
+	@ApiModelProperty(notes = "Distance Kilometer are used")
 	private double distanceKilometer;
 	
+	@ApiModelProperty(notes = "Trip information")
 	private Trip trip;
 
 	

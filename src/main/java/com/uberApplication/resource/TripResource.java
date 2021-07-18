@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uberApplication.dto.ResponseDto;
@@ -41,7 +42,7 @@ public class TripResource {
 
 	@ApiOperation("Request a driver using Driver Id")
 	@PostMapping(value = "createTrip")
-	public ResponseEntity<?> createTrip(@PathParam("driverId") int driverId) {
+	public ResponseEntity<?> createTrip(@RequestParam("driverId") int driverId) {
 		try {
 			tripService.tripRequested(driverId);
 			return new ResponseEntity<>(new ResponseMessage("Well successfull Requested"), HttpStatus.OK);
@@ -51,7 +52,7 @@ public class TripResource {
 		}
 	}
 
-	@ApiOperation("Return all Drivers are Requested")
+	@ApiOperation("Return all Trip are Pending")
 	@GetMapping(value = "requestedTrip")
 	public ResponseEntity<List<Trip>> requestedTrip() {
 		try {
@@ -66,8 +67,8 @@ public class TripResource {
 	}
 	@ApiOperation("Here is to start trip by provinding tripId, startPointLatitude,startPointLongitude and Location Name")
 	@PutMapping(value = "startTrip")
-	public ResponseEntity<?> startTrip(@PathParam("tripId") int tripId, @PathParam("latitude") String latitude,
-			@PathParam("longitude") String longitude, @PathParam("locationNameStartPoint") String locationNameStartPoint) {
+	public ResponseEntity<?> startTrip(@RequestParam("tripId") int tripId, @RequestParam("latitude") String latitude,
+			@RequestParam("longitude") String longitude, @RequestParam("locationNameStartPoint") String locationNameStartPoint) {
 
 		try {
 			tripService.tripStarted(tripId, latitude, longitude, locationNameStartPoint);
@@ -91,8 +92,8 @@ public class TripResource {
 	@ApiOperation("Here is to Complete a Trip by provinding Trip Id, endPointLatitude, endPointLongitude and LocationNameEndPoint"
 			+ "And it will return success message and the URL to print Invoice( Copy url and paste it in the Browser to see invoice)")
 	@PutMapping(value = "completeTrip")
-	public ResponseEntity<?> completeTrip(@PathParam("tripId") int tripId, @PathParam("latitude") String latitude,
-			@PathParam("longitude") String longitude, @PathParam("locationNameEndPoint") String locationNameEndPoint) {
+	public ResponseEntity<?> completeTrip(@RequestParam("tripId") int tripId, @RequestParam("latitude") String latitude,
+			@RequestParam("longitude") String longitude, @RequestParam("locationNameEndPoint") String locationNameEndPoint) {
 
 		try {
 			if(latitude!= null && longitude!=null && locationNameEndPoint != null) {

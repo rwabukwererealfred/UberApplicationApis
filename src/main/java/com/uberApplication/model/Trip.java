@@ -6,28 +6,39 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 
 
 @Document(collection = "Trip")
+@ApiModel(description = "Trip information model")
 public class Trip {
 	
 	@Transient
 	public static final String SEQUENCE_NAME = "user_sequence";
 
 	@Id
+	@ApiModelProperty(notes = "Unique Trip id will Generated automatically")
 	private int tripId;
+	@ApiModelProperty(notes = "Start movement time should generated automatically")
 	private LocalDateTime startTime;
+	@ApiModelProperty(notes = " movement Ending time should alse generated automatically after trip is completed")
 	private LocalDateTime endTime;
-	
+	@ApiModelProperty(notes = "Location start point(latitude, longitude and location name)")
 	private String[] startPoint;
+	@ApiModelProperty(notes = "Location end point(latitude, longitude and location name)")
 	private String[] endPoint;
+	@ApiModelProperty(notes = "Trip Status")
 	private String status;
+	@ApiModelProperty(notes = "Url for invoice")
 	private String url;
 	
 	@Transient
+	@ApiModelProperty(notes = "Kilometer used after trip is completed")
 	private Double usedKilometer;
 	
-
+	@ApiModelProperty(notes = "Requested Driver")
 	private Driver driver;
 	
 	
